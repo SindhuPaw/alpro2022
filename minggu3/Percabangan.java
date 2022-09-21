@@ -11,9 +11,9 @@ public class Percabangan {
         int nilai = scan.nextInt();
 
         if ( nilai >= 60){
-            keterangan = "Lulus";
+            keterangan = "lulus";
         }else{
-            keterangan = "Tidak lulus";
+            keterangan = "tidak lulus";
         }
 
         System.out.println(nama + ' ' + keterangan);
