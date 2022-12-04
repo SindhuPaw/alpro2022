@@ -1,20 +1,20 @@
-public class Mahasiswa {
+class Mahasiswa {
     private String nim;
     private String nama;
 
-    public void setNim(String nim) {
+    void setNim(String nim) {
         this.nim = nim;
     }
 
-    public String getNim() {
+    String getNim() {
         return this.nim;
     }
 
-    public void setNama(String nama) {
+    void setNama(String nama) {
         this.nama = nama;
     }
 
-    public String getNama() {
+    String getNama() {
         return this.nama;
     }
 }
