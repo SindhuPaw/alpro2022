@@ -311,9 +311,41 @@ class Siakad {
         System.out.println();
     }
 
+    static String uas() {
+        int jarak = jumData;
+        int susut = 13;
+        int urut = 0;
+        String pesan = "Tidak ada Data!";
+        Mahasiswa temp;
+
+        if(jumData != 0) {
+            do {
+                jarak = (jarak * 10) / susut;
+
+                if(jarak <= 1) {
+                    jarak = 1;
+                    urut = 1;
+                } 
+
+                for(int i = 0; (i + jarak) < jumData; i++) {
+                    if(mahasiswa[i].getNim() > mahasiswa[i + jarak].getNim()) {
+                        swap(i, (i + jarak));
+                        urut = 0;
+                    }
+                }
+            } while(urut == 0);
+        } else {
+            return pesan;
+        }
+
+        pesan = "Data telah diurutkan, silakan tampilkan data!";
+        return pesan;
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int menu;
+        String pesan;
 
         do {
             System.out.println("===Menu Siakad===");
@@ -323,7 +355,8 @@ class Siakad {
             System.out.println("4. Cari data");
             System.out.println("5. Edit data");
             System.out.println("6. Hapus data");
-            System.out.println("7. Keluar");
+            System.out.println("7. UAS");
+            System.out.println("8. Keluar");
             System.out.print("\nPilihan : ");
             menu = scan.nextInt();
             scan.nextLine();
@@ -353,7 +386,11 @@ class Siakad {
                 System.out.println("\n===Tampilkan Data===");
                 tampilkan();
                 scan.nextLine();
+            } else if(menu == 7) {
+                pesan = uas();
+                System.out.println("\n" + pesan);
+                scan.nextLine();
             }
-        } while (menu!=7);
+        } while (menu != 8);
     }
 }
